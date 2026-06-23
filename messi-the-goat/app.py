@@ -18,6 +18,112 @@ st.set_page_config(
 )
 
 
+def render_birthday_banner() -> None:
+    """Render the Argentina x Bangladesh banner and live birthday countdown."""
+    st.markdown(
+        """
+        <style>
+            .birthday-band {
+                border: 1px solid #d7e3f4;
+                border-radius: 12px;
+                padding: 20px 22px;
+                margin: 8px 0 18px;
+                background: #f7fbff;
+            }
+            .flag-line {
+                font-size: 44px;
+                line-height: 1.1;
+                margin-bottom: 8px;
+            }
+            .birthday-band h1 {
+                margin: 0;
+                font-size: 34px;
+                line-height: 1.2;
+            }
+            .birthday-band p {
+                margin: 8px 0 0;
+                color: #334155;
+                font-size: 17px;
+            }
+            @media (max-width: 700px) {
+                .flag-line {
+                    font-size: 34px;
+                }
+                .birthday-band h1 {
+                    font-size: 26px;
+                }
+            }
+        </style>
+        <div class="birthday-band">
+            <div class="flag-line">🇦🇷 x 🇧🇩</div>
+            <h1>Messi the Goat</h1>
+            <p>Argentina x Bangladesh, plus a countdown to June 24 because me and Messi share the same birthday.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.iframe(
+        """
+        <div class="countdown-wrap">
+            <div class="countdown-label">Countdown to June 24</div>
+            <div id="birthday-countdown" class="countdown-time">Loading...</div>
+        </div>
+        <style>
+            .countdown-wrap {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                border: 1px solid #e2e8f0;
+                border-radius: 10px;
+                padding: 14px 16px;
+                background: #ffffff;
+            }
+            .countdown-label {
+                color: #475569;
+                font-size: 14px;
+                margin-bottom: 6px;
+            }
+            .countdown-time {
+                color: #0f172a;
+                font-size: 26px;
+                font-weight: 700;
+                letter-spacing: 0;
+            }
+            @media (max-width: 700px) {
+                .countdown-time {
+                    font-size: 21px;
+                }
+            }
+        </style>
+        <script>
+            function nextBirthdayTarget() {
+                const now = new Date();
+                let target = new Date(now.getFullYear(), 5, 24, 0, 0, 0);
+                if (now > target) {
+                    target = new Date(now.getFullYear() + 1, 5, 24, 0, 0, 0);
+                }
+                return target;
+            }
+
+            function updateCountdown() {
+                const target = nextBirthdayTarget();
+                const now = new Date();
+                const diff = Math.max(0, target - now);
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                const seconds = Math.floor((diff / 1000) % 60);
+                document.getElementById("birthday-countdown").textContent =
+                    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        </script>
+        """,
+        height=105,
+    )
+
+
 @st.cache_data
 def get_dashboard_data():
     """Load and enrich the dashboard dataset."""
@@ -30,7 +136,7 @@ def get_dashboard_data():
 
 df, detail, forecast = get_dashboard_data()
 
-st.title("Messi the Goat")
+render_birthday_banner()
 st.write(
     "A simple Messi dashboard using club and Argentina records. It combines "
     "both into one overall score, compares that score to a rough value estimate, "
