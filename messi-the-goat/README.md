@@ -1,8 +1,8 @@
 # Messi the Goat
 
-You can find the live project here: https://ilovemessi.streamlit.app/
+https://ilovemessi.streamlit.app/
 
-I have loved Messi ever since I was a kid. Me and Messi also have the same birthday, so that made me like him even more.
+I have love Messi. Ever since I was a kid he has mesmerized me. We also have the same birthday! Coincidence... I think not, bc yk... WE are both the GOAT.
 
 I decided to make a Python project about Messi because he is the GOAT. This project is basically my way of showing how much I love Messi while also using computer science, data, and Python.
 
