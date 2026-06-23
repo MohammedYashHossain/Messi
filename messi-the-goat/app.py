@@ -57,7 +57,7 @@ def render_birthday_banner() -> None:
         <div class="birthday-band">
             <div class="flag-line">🇦🇷 x 🇧🇩</div>
             <h1>Messi the Goat</h1>
-            <p>Argentina x Bangladesh, plus a countdown to June 24 because me and Messi share the same birthday.</p>
+            <p>Oh Messi... where do I even begin.</p>
         </div>
         """,
         unsafe_allow_html=True,
