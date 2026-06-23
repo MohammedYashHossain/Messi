@@ -7,14 +7,11 @@ from src.metrics import calculate_goat_index
 
 FORECAST_FEATURES = [
     "age",
-    "minutes",
+    "appearances",
     "goals",
     "assists",
-    "xg",
-    "xa",
-    "key_passes",
-    "successful_dribbles",
-    "progressive_carries",
+    "trophies",
+    "estimated_market_value_m",
 ]
 
 
@@ -44,14 +41,14 @@ def forecast_goat_index(df: pd.DataFrame, years_ahead: int = 3) -> pd.DataFrame:
         aging_factor = 0.92**step
         future_features = {
             "age": int(latest["age"] + step),
-            "minutes": max(900, recent["minutes"].mean() * aging_factor),
+            "appearances": max(12, recent["appearances"].mean() * aging_factor),
             "goals": max(4, recent["goals"].mean() * aging_factor),
             "assists": max(3, recent["assists"].mean() * aging_factor),
-            "xg": max(4, recent["xg"].mean() * aging_factor),
-            "xa": max(3, recent["xa"].mean() * aging_factor),
-            "key_passes": max(25, recent["key_passes"].mean() * aging_factor),
-            "successful_dribbles": max(20, recent["successful_dribbles"].mean() * aging_factor),
-            "progressive_carries": max(55, recent["progressive_carries"].mean() * aging_factor),
+            "trophies": max(0, recent["trophies"].mean() * aging_factor),
+            "estimated_market_value_m": max(
+                5,
+                recent["estimated_market_value_m"].mean() * aging_factor,
+            ),
         }
         prediction = float(model.predict(pd.DataFrame([future_features]))[0])
         future_rows.append(

@@ -1,21 +1,22 @@
-season,age,club,appearances,minutes,goals,assists,xg,xa,key_passes,successful_dribbles,progressive_carries,trophies,estimated_market_value_m
-2005-06,18,Barcelona,25,1487,8,5,7.2,4.8,38,72,95,2,25
-2006-07,19,Barcelona,36,2471,17,3,14.8,5.4,52,128,151,1,60
-2007-08,20,Barcelona,40,2789,16,13,15.9,10.7,70,164,202,0,80
-2008-09,21,Barcelona,51,4021,38,17,31.6,13.8,104,202,266,3,100
-2009-10,22,Barcelona,53,4273,47,12,39.4,10.5,94,238,294,2,120
-2010-11,23,Barcelona,55,4647,53,24,43.8,18.9,128,266,338,2,150
-2011-12,24,Barcelona,60,5221,73,31,59.9,23.4,151,318,401,1,180
-2012-13,25,Barcelona,50,4056,60,16,48.3,13.2,107,249,326,1,180
-2013-14,26,Barcelona,46,3741,41,15,36.5,12.4,96,214,287,0,140
-2014-15,27,Barcelona,57,5060,58,27,47.7,20.5,139,286,371,3,160
-2015-16,28,Barcelona,49,4130,41,23,35.6,18.4,120,257,342,2,150
-2016-17,29,Barcelona,52,4506,54,20,45.2,16.7,116,244,330,1,140
-2017-18,30,Barcelona,54,4468,45,18,37.8,15.8,132,221,318,2,120
-2018-19,31,Barcelona,50,4142,51,19,39.9,16.1,121,205,301,1,110
-2019-20,32,Barcelona,44,3633,31,25,27.6,20.3,126,182,277,0,100
-2020-21,33,Barcelona,47,4192,38,14,32.1,12.8,112,176,266,1,80
-2021-22,34,PSG,34,2881,11,15,11.8,12.7,89,104,181,1,55
-2022-23,35,PSG,41,3412,21,20,19.4,17.9,104,118,209,2,45
-2023,36,Inter Miami,14,1105,11,5,8.9,4.7,41,39,88,1,35
-2024,37,Inter Miami,25,2148,23,13,19.7,10.8,72,71,154,1,30
+season,age,club,league,appearances,goals,assists,trophies,estimated_market_value_m,source
+2005-06,18,Barcelona,La Liga,25,8,5,2,25,Wikipedia career statistics
+2006-07,19,Barcelona,La Liga,36,17,3,1,60,Wikipedia career statistics
+2007-08,20,Barcelona,La Liga,40,16,13,0,80,Wikipedia career statistics
+2008-09,21,Barcelona,La Liga,51,38,18,3,100,Wikipedia career statistics
+2009-10,22,Barcelona,La Liga,53,47,11,2,120,Wikipedia career statistics
+2010-11,23,Barcelona,La Liga,55,53,24,2,150,Wikipedia career statistics
+2011-12,24,Barcelona,La Liga,60,73,30,1,180,Wikipedia career statistics
+2012-13,25,Barcelona,La Liga,50,60,16,1,180,Wikipedia career statistics
+2013-14,26,Barcelona,La Liga,46,41,14,0,140,Wikipedia career statistics
+2014-15,27,Barcelona,La Liga,57,58,27,3,160,Wikipedia career statistics
+2015-16,28,Barcelona,La Liga,49,41,23,2,150,Wikipedia career statistics
+2016-17,29,Barcelona,La Liga,52,54,16,1,140,Wikipedia career statistics
+2017-18,30,Barcelona,La Liga,54,45,18,2,120,Wikipedia career statistics
+2018-19,31,Barcelona,La Liga,50,51,19,1,110,Wikipedia career statistics
+2019-20,32,Barcelona,La Liga,44,31,25,0,100,Wikipedia career statistics
+2020-21,33,Barcelona,La Liga,47,38,14,1,80,Wikipedia career statistics
+2021-22,34,Paris Saint-Germain,Ligue 1,34,11,15,1,55,Wikipedia career statistics
+2022-23,35,Paris Saint-Germain,Ligue 1,41,21,20,2,45,Wikipedia career statistics
+2023,36,Inter Miami,MLS,14,11,5,1,35,Wikipedia career statistics
+2024,37,Inter Miami,MLS,25,23,13,1,30,Wikipedia career statistics
+2025,38,Inter Miami,MLS,49,43,25,2,25,Wikipedia career statistics

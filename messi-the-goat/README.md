@@ -1,29 +1,35 @@
 # Messi the Goat
 
-This is a simple Python project about Lionel Messi's career.
+I made this project because I love Messi and I think he is the GOAT.
 
-It takes Messi's season stats, gives each season a score, estimates a rough value for that season, and shows a short forecast for the next few years.
+This is a simple Python app that looks at Messi's real club season records and turns them into a few easy things to understand: a season score, a rough value estimate, and a short forecast.
 
-The project is not trying to be a perfect football model. It is just a clean way to look at Messi's numbers with Python.
+It is not supposed to be a perfect football model. I just wanted to build something clean around Messi's career and show his numbers in a fun way.
 
-## What The App Does
+## How It Works
 
-- Loads sample Messi season data
-- Creates per-90 stats like goals per 90 and assists per 90
-- Builds a GOAT Index score from 0 to 100
-- Estimates a rough model value for each season
-- Compares model value with market value
-- Forecasts the next few seasons
-- Shows everything in a Streamlit dashboard
+The app starts with Messi season data from Barcelona, PSG, and Inter Miami. The appearances and goals come from Messi's career statistics table. The assists and value numbers are there so the model has enough to score and compare each season.
 
-## Tools Used
+For each season, it looks at stats like:
 
-- Python
-- Pandas
-- scikit-learn
-- Streamlit
-- Plotly
-- pytest
+- Goals
+- Assists
+- Trophies
+- Appearances
+
+Goals and assists are changed into per-appearance numbers first, so the seasons are easier to compare.
+
+Then the app builds a GOAT Index from 0 to 100. A higher score means the season was stronger based on the stats in the model.
+
+After that, the app makes a rough model value for each season and compares it to the estimated market value. It also makes a small forecast for the next few seasons.
+
+## What You See In The App
+
+- Messi's season data
+- His GOAT Index by season
+- Market value vs model value
+- Extra value by season
+- A short future forecast
 
 ## How To Run It
 
@@ -35,7 +41,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-On macOS or Linux, use this line to activate the virtual environment:
+On macOS or Linux, activate the virtual environment with:
 
 ```bash
 source .venv/bin/activate
@@ -47,47 +53,6 @@ source .venv/bin/activate
 pytest
 ```
 
-## How The Score Works
+## Data Source
 
-The GOAT Index is a simple weighted score.
-
-It uses stats like:
-
-- Goals
-- Assists
-- xG
-- xA
-- Key passes
-- Successful dribbles
-- Progressive carries
-- Trophies
-- Minutes played
-
-Most of the stats are turned into per-90 numbers first. Then they are scaled and combined into one score from 0 to 100.
-
-## Project Files
-
-```text
-messi-the-goat/
-|-- app.py
-|-- README.md
-|-- requirements.txt
-|-- data/
-|   |-- messi_seasons.csv
-|-- src/
-|   |-- data_loader.py
-|   |-- metrics.py
-|   |-- valuation.py
-|   |-- forecasting.py
-|   |-- visuals.py
-|-- tests/
-    |-- test_metrics.py
-    |-- test_valuation.py
-```
-
-## Things I Would Add Later
-
-- Use real data from a football data source
-- Add league difficulty
-- Adjust old market values for inflation
-- Show which stats matter most in the forecast
+- Lionel Messi career statistics on Wikipedia: https://en.wikipedia.org/wiki/Lionel_Messi

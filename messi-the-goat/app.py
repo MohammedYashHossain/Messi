@@ -31,8 +31,9 @@ df, forecast = get_dashboard_data()
 
 st.title("Messi the Goat")
 st.write(
-    "A simple Messi dashboard. It scores each season, compares that score to "
-    "a rough value estimate, and makes a small forecast."
+    "A simple Messi dashboard using real club season records. It scores each "
+    "season, compares that score to a rough value estimate, and makes a small "
+    "forecast."
 )
 
 peak_row = df.loc[df["goat_index"].idxmax()]

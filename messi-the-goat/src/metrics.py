@@ -2,15 +2,11 @@ import pandas as pd
 
 
 GOAT_WEIGHTS = {
-    "goals_per90": 0.22,
-    "assists_per90": 0.16,
-    "xg_per90": 0.14,
-    "xa_per90": 0.12,
-    "key_passes_per90": 0.10,
-    "dribbles_per90": 0.10,
-    "progressive_carries_per90": 0.08,
-    "trophies": 0.05,
-    "minutes": 0.03,
+    "goals_per_appearance": 0.35,
+    "assists_per_appearance": 0.25,
+    "goal_contributions": 0.20,
+    "trophies": 0.10,
+    "appearances": 0.10,
 }
 
 
@@ -26,15 +22,9 @@ def _min_max_normalize(series: pd.Series) -> pd.Series:
 def calculate_goat_index(df: pd.DataFrame) -> pd.DataFrame:
     """Calculate a weighted 0-100 GOAT Index for each season."""
     scored = df.copy()
-    minutes_per_90 = scored["minutes"] / 90
-
-    scored["goals_per90"] = scored["goals"] / minutes_per_90
-    scored["assists_per90"] = scored["assists"] / minutes_per_90
-    scored["xg_per90"] = scored["xg"] / minutes_per_90
-    scored["xa_per90"] = scored["xa"] / minutes_per_90
-    scored["key_passes_per90"] = scored["key_passes"] / minutes_per_90
-    scored["dribbles_per90"] = scored["successful_dribbles"] / minutes_per_90
-    scored["progressive_carries_per90"] = scored["progressive_carries"] / minutes_per_90
+    scored["goals_per_appearance"] = scored["goals"] / scored["appearances"]
+    scored["assists_per_appearance"] = scored["assists"] / scored["appearances"]
+    scored["goal_contributions"] = scored["goals"] + scored["assists"]
 
     weighted_score = pd.Series(0.0, index=scored.index)
     for feature, weight in GOAT_WEIGHTS.items():
