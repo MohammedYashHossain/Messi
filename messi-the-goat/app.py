@@ -1,6 +1,6 @@
 import streamlit as st
 
-from src.data_loader import load_messi_data
+from src.data_loader import load_all_messi_data, load_messi_data
 from src.forecasting import forecast_goat_index
 from src.valuation import estimate_intrinsic_value
 from src.visuals import (
@@ -21,19 +21,20 @@ st.set_page_config(
 @st.cache_data
 def get_dashboard_data():
     """Load and enrich the dashboard dataset."""
-    raw_df = load_messi_data()
-    valued_df = estimate_intrinsic_value(raw_df)
+    overall_df = load_messi_data()
+    detail_df = load_all_messi_data()
+    valued_df = estimate_intrinsic_value(overall_df)
     forecast_df = forecast_goat_index(valued_df, years_ahead=3)
-    return valued_df, forecast_df
+    return valued_df, detail_df, forecast_df
 
 
-df, forecast = get_dashboard_data()
+df, detail, forecast = get_dashboard_data()
 
 st.title("Messi the Goat")
 st.write(
-    "A simple Messi dashboard using real club season records. It scores each "
-    "season, compares that score to a rough value estimate, and makes a small "
-    "forecast."
+    "A simple Messi dashboard using club and Argentina records. It combines "
+    "both into one overall score, compares that score to a rough value estimate, "
+    "and makes a small forecast."
 )
 
 peak_row = df.loc[df["goat_index"].idxmax()]
@@ -55,20 +56,23 @@ metric_cols[3].metric(
     f"{df['value_efficiency'].mean():.2f}x",
 )
 
-st.subheader("Season Data")
-st.dataframe(df, use_container_width=True)
+st.subheader("Overall Data")
+st.dataframe(df, width="stretch")
+
+st.subheader("Club And Argentina Data")
+st.dataframe(detail, width="stretch")
 
 left_col, right_col = st.columns(2)
 with left_col:
-    st.plotly_chart(plot_goat_index(df), use_container_width=True)
+    st.plotly_chart(plot_goat_index(df), width="stretch")
 with right_col:
-    st.plotly_chart(plot_value_comparison(df), use_container_width=True)
+    st.plotly_chart(plot_value_comparison(df), width="stretch")
 
 surplus_col, forecast_col = st.columns(2)
 with surplus_col:
-    st.plotly_chart(plot_surplus_value(df), use_container_width=True)
+    st.plotly_chart(plot_surplus_value(df), width="stretch")
 with forecast_col:
-    st.plotly_chart(plot_forecast(forecast), use_container_width=True)
+    st.plotly_chart(plot_forecast(forecast), width="stretch")
 
 st.subheader("Simple Forecast")
-st.dataframe(forecast, use_container_width=True)
+st.dataframe(forecast, width="stretch")

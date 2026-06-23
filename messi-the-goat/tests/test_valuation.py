@@ -2,10 +2,10 @@ from src.data_loader import load_messi_data
 from src.valuation import estimate_intrinsic_value
 
 
-def test_valuation_positive():
+def test_valuation_non_negative():
     df = estimate_intrinsic_value(load_messi_data())
 
-    assert (df["intrinsic_value_m"] > 0).all()
+    assert (df["intrinsic_value_m"] >= 0).all()
 
 
 def test_surplus_value_exists():

@@ -20,7 +20,7 @@ def _min_max_normalize(series: pd.Series) -> pd.Series:
 
 
 def calculate_goat_index(df: pd.DataFrame) -> pd.DataFrame:
-    """Calculate a weighted 0-100 GOAT Index for each season."""
+    """Calculate a weighted 0-100 GOAT Index for each season or year."""
     scored = df.copy()
     scored["goals_per_appearance"] = scored["goals"] / scored["appearances"]
     scored["assists_per_appearance"] = scored["assists"] / scored["appearances"]
