@@ -31,18 +31,17 @@ df, forecast = get_dashboard_data()
 
 st.title("Messi the Goat")
 st.write(
-    "This app looks at Messi's seasons and gives each one a simple score. "
-    "It also makes a rough value estimate and a short forecast for the next "
-    "few years."
+    "A simple Messi dashboard. It scores each season, compares that score to "
+    "a rough value estimate, and makes a small forecast."
 )
 
 peak_row = df.loc[df["goat_index"].idxmax()]
 value_row = df.loc[df["intrinsic_value_m"].idxmax()]
 
 metric_cols = st.columns(4)
-metric_cols[0].metric("Best Scored Season", peak_row["season"], f"{peak_row['goat_index']:.2f}")
+metric_cols[0].metric("Best Season", peak_row["season"], f"{peak_row['goat_index']:.2f}")
 metric_cols[1].metric(
-    "Highest Model Value",
+    "Top Model Value",
     value_row["season"],
     f"${value_row['intrinsic_value_m']:.1f}M",
 )
@@ -51,7 +50,7 @@ metric_cols[2].metric(
     f"${df['intrinsic_value_m'].sum():.1f}M",
 )
 metric_cols[3].metric(
-    "Average Value Ratio",
+    "Avg Value Ratio",
     f"{df['value_efficiency'].mean():.2f}x",
 )
 

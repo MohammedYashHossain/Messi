@@ -14,7 +14,7 @@ def plot_goat_index(df: pd.DataFrame) -> go.Figure:
         y="goat_index",
         markers=True,
         color="club",
-        title="Messi Score by Season",
+        title="Season Score",
         template=CHART_TEMPLATE,
     )
     fig.update_layout(yaxis_title="GOAT Index", xaxis_title="Season")
@@ -41,7 +41,7 @@ def plot_value_comparison(df: pd.DataFrame) -> go.Figure:
         )
     )
     fig.update_layout(
-        title="Market Value vs Model Value",
+        title="Market vs Model Value",
         xaxis_title="Season",
         yaxis_title="Value in millions",
         template=CHART_TEMPLATE,
@@ -63,7 +63,7 @@ def plot_surplus_value(df: pd.DataFrame) -> go.Figure:
         ]
     )
     fig.update_layout(
-        title="Extra Value by Season",
+        title="Extra Value",
         xaxis_title="Season",
         yaxis_title="Value in millions",
         template=CHART_TEMPLATE,
@@ -78,7 +78,7 @@ def plot_forecast(forecast_df: pd.DataFrame) -> go.Figure:
         x="age",
         y="predicted_goat_index",
         markers=True,
-        title="Next Few Years Forecast",
+        title="Short Forecast",
         template=CHART_TEMPLATE,
     )
     fig.update_layout(yaxis_title="Predicted score", xaxis_title="Age")
