@@ -2,7 +2,7 @@
 
 https://ilovemessi.streamlit.app/
 
-I have love Messi. Ever since I was a kid he has mesmerized me. We also have the same birthday! Coincidence... I think not, bc yk... WE are both the GOAT.
+I will always love Messi. Ever since I was a kid he has mesmerized me. We also have the same birthday! Coincidence... I think not, bc yk... WE are both the GOAT.
 
 I decided to make a Python project about Messi because he is the GOAT. This project is basically my way of showing how much I love Messi while also using python, money, and football.
 
